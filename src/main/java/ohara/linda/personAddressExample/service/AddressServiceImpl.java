@@ -28,8 +28,9 @@ public class AddressServiceImpl implements AddressService{
         if(addressDb.isPresent()){
             Address addressUpdate = addressDb.get();
             addressUpdate.setId(address.getId());
-            addressUpdate.setStreet(address.getStreet());
             addressUpdate.setNumber(address.getNumber());
+            addressUpdate.setStreet(address.getStreet());
+            addressUpdate.setCity(address.getCity());
             addressUpdate.setState(address.getState());
             addressRepository.save(addressUpdate);
             return addressUpdate;
@@ -39,23 +40,23 @@ public class AddressServiceImpl implements AddressService{
     }
 
     @Override
-    public Address getAddressById(long personId) {
-        Optional<Address> addressDb = this.addressRepository.findById(personId);
+    public Address getAddressById(long addressId) {
+        Optional<Address> addressDb = this.addressRepository.findById(addressId);
         if(addressDb.isPresent()){
         return addressDb.get();
     }else{
-            throw new ResourceNotFoundException("Record not found with id: "+ personId);
+            throw new ResourceNotFoundException("Record not found with id: "+ addressId);
         }
     }
 
 
     @Override
-    public void deleteAddress(long personId) {
-        Optional<Address> addressDb = this.addressRepository.findById(personId);
+    public void deleteAddress(long addressId) {
+        Optional<Address> addressDb = this.addressRepository.findById(addressId);
         if(addressDb.isPresent()){
             this.addressRepository.delete(addressDb.get());
         }else{
-            throw new ResourceNotFoundException("Record not found with id: "+ personId);
+            throw new ResourceNotFoundException("Record not found with id: "+ addressId);
         }
 
     }

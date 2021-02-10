@@ -13,4 +13,9 @@ We are going to complete anothe CRUD app that is represented below:
 
 ![](tuesday_uml_2.png)
 
-Use what you have learned yesterday, to complete todays task.
+Use what you have learned yesterday, to complete todays task.Optional<Address> addressDb = this.addressRepository.findById(personId);
+if(addressDb.isPresent()){
+return addressDb.get();
+}else{
+throw new ResourceNotFoundException("Record not found with id: "+ address.getId());
+}

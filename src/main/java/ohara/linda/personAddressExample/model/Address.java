@@ -13,11 +13,14 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @Column(name = "number")
+    private Integer number;
+
     @Column(name = "street")
     private String street;
 
-    @Column(name = "number")
-    private Integer number;
+    @Column(name = "city")
+    private String city;
 
     @Column(name = "state")
     private String state;
@@ -50,6 +53,14 @@ public class Address {
 
     public void setNumber(Integer number) {
         this.number = number;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getState() {

@@ -24,7 +24,7 @@ public class PersonController {
         return ResponseEntity.ok().body(personService.getPersonById(id));
     }
 
-    @PostMapping("/people")
+    @PostMapping(value = "/people")
     public ResponseEntity<Person> createPerson(@RequestBody Person person) {
         return ResponseEntity.ok().body(this.personService.createPerson(person));
     }
