@@ -13,6 +13,7 @@
 
 # Sensitive or high-churn files
 **/.DS_Store
+*.DS_Store
 .idea/**/dataSources/
 .idea/**/dataSources.ids
 .idea/**/dataSources.local.xml
